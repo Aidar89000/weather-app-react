@@ -1,0 +1,13 @@
+Input{
+    width: 45vw;
+    height: 5vh;
+    outline: none;
+    font-size: 45px;
+    color: rgb(245, 245, 245);
+    background-color: #3e4044;
+    border: 0;
+    border-bottom: 1px white inset;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    padding: 10px;
+}
