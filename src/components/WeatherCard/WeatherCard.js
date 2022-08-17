@@ -1,8 +1,10 @@
 import classes from './WeatherCard.module.css'
 
-const WeatherCard = props =>
+const WeatherCard = props =>{
 
-    Object.keys(props.countryes).map((e,i)=>{
+    const options = ['temp', 'humidity', 'feels_like']
+
+    return Object.keys(props.countryes).map((e,i)=>{
 
         const data = props.countryes[i]
 
@@ -19,12 +21,15 @@ const WeatherCard = props =>
 
             <div className={classes['weather-card__temp']}>
                 <h2 key={i} >description: <p>{data.weather[0].description}</p> </h2>
-                {Object.keys(data.main).map((e,o)=> <h2 key={o}> {e}: <p> {data.main[e]} </p> </h2> )}
+                {Object.keys(data.main).map((e,o)=> 
+                    options.map(opt => e===opt ? <h2 key={o}> {e}: <p> {data.main[e]} </p> </h2> : null)
+                        
+                 )}
             </div>
       
         </div>
        )
     })
-
+}
 
 export {WeatherCard }

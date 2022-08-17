@@ -2,7 +2,7 @@
 import './App.css';
 import { Input } from './components/Input/Input';
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 
 import { WeatherCard } from './components/WeatherCard/WeatherCard';
@@ -18,9 +18,8 @@ function App() {
   const [weatherData, updateWeatherData ] = useState({
     load: false,
     countryes:'',
-    click: false
+    click: false,
   })
-
 
   const apiKey = 'feb25304b650db40d0b45ff6ea7dec32'
 
@@ -35,7 +34,7 @@ function App() {
        } )
 
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/find?q=${text.trim()}&type=like&appid=${apiKey}&lang=ru&units=metric`)
-
+ 
     updateWeatherData({
       ...weatherData,
        countryes:res.data.list,
@@ -57,13 +56,12 @@ function App() {
 
         <Button onClick={getData}>push</Button>
       </div>
-        
 
       </header>
 
 
 
-{ text==='' || !weatherData.click ? <h1>City's name</h1> :
+{ text==='' || !weatherData.click ? <h1>object's name</h1> :
 
 weatherData.load ?
 
@@ -74,10 +72,10 @@ weatherData.load ?
        <Loader/>
 }
 <footer>
-<h5>by Kharisov Aidar </h5>
+
 </footer>
     </div>
   )
 }
 
-export default App;
+export default App
